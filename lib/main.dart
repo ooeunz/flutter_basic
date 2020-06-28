@@ -40,13 +40,25 @@ class HelloPage extends StatefulWidget {
 }
 
 class _HelloPageState extends State<HelloPage> {
+  String _message = "pengsoo is future!";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: _changeMessage,
       ),
-      body: Text(widget.title, style: TextStyle(fontSize: 30),)
+      appBar: AppBar(
+        title: Text(_message),
+      ),
+      body: Text(_message, style: TextStyle(fontSize: 30),)
     );
+  }
+
+  void _changeMessage() {
+    setState(() {
+      _message = "펭수가 미래다.";
+    });
   }
 }
